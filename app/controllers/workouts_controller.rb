@@ -1,6 +1,9 @@
 class WorkoutsController < AuthorizedController
+  load_and_authorize_resource
+
   def index
     @workouts = current_user.visible_workouts
+    @workouts = @workouts.includes(:trainees) if Workout::PERMITTED_COLUMNS[current_user.type].include?('trainees')
   end
 
   def new

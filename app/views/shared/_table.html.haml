@@ -1,0 +1,10 @@
+%table
+  %thead
+    %tr
+      - data[:columns].each do |column|
+        %th= column
+  %tbody
+    - data[:rows].each do |row|
+      %tr
+        - row.each do |value|
+          %td= value

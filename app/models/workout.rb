@@ -5,6 +5,11 @@ class Workout < ApplicationRecord
 
   before_save :set_duration
 
+  PERMITTED_COLUMNS = {
+    'Trainer' => %w(name duration trainees state actions),
+    'Trainee' => %w(name duration actions),
+  }.freeze
+
   private
 
   def set_duration

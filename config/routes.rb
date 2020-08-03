@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :workouts
+  resource :profile, only: [:edit, :update]
 end

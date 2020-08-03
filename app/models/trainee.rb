@@ -3,6 +3,6 @@ class Trainee < User
   has_and_belongs_to_many :workouts, join_table: 'workouts_trainees'
 
   def visible_workouts
-    workouts.where(state: 'published')
+    workouts.where(state: 'published', creator_id: trainer_id)
   end
 end

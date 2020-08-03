@@ -1,0 +1,23 @@
+%h1 My Profile
+
+= form_for(current_user, url: profile_path, method: :patch) do |f|
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name
+  .form-group
+    = f.label :last_name
+    = f.text_field :last_name
+
+  - if f.object.is_a?(Trainee)
+    .form-group
+      :javascript
+        grouped_trainers = #{@grouped_trainers.to_json.html_safe}
+      - expertise_area = f.object.trainer&.expertise_area
+      %label Area of expertise
+      = select_tag :expertise_area, options_for_select(@grouped_trainers.keys, expertise_area), include_blank: true
+    .form-group
+      = f.label :trainer_id
+      = f.select :trainer_id, options_from_collection_for_select(@grouped_trainers[expertise_area].to_a, :id, :full_name, f.object.trainer_id)
+
+  .form-group
+    = f.submit

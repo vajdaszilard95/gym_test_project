@@ -1,0 +1,7 @@
+= simple_form_for(@workout) do |f|
+  = f.input :name, required: true
+  = f.input :state, as: :boolean, label: 'Published', checked_value: 'published', unchecked_value: 'draft'
+  = f.association :exercises, collection: Exercise.options_for_select, required: true
+  = f.association :trainees, collection: current_user.trainees
+
+  = f.button :submit

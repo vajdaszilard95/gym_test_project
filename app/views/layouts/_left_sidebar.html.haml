@@ -2,5 +2,11 @@
   .sidebar.col-sm-4.col-md-3{class: col_classes}
     %ul
       - menu_items.each do |menu_item|
-        - @title ||= menu_item[:label] if menu_item[:active]
+        - @title ||= if menu_item[:active]
+          - if action_name.in?(['new', 'create'])
+            - "New #{menu_item[:label].singularize}"
+          - if action_name.in?(['edit', 'update'])
+            - "Edit #{menu_item[:label].singularize}"
+          - else
+            - menu_item[:label]
         %li{class: "#{'active' if menu_item[:active]}"}= link_to menu_item[:label], menu_item[:path]

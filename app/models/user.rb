@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :type, presence: true
-  validates :first_name, :last_name, :trainer_id, presence: true, if: :persisted?
+  validates :first_name, :last_name, presence: true, if: :persisted?
 
   def initialize(*args)
     super

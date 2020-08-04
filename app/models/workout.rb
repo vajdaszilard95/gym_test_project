@@ -3,6 +3,8 @@ class Workout < ApplicationRecord
   belongs_to :creator, class_name: 'Trainer'
   has_and_belongs_to_many :trainees, join_table: 'workouts_trainees'
 
+  validates :name, :exercises, presence: true
+
   before_save :set_duration
 
   PERMITTED_COLUMNS = {

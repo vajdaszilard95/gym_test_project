@@ -1,2 +1,12 @@
-%h1 Workouts#show
-%p Find me in app/views/workouts/show.html.haml
+%p
+  %b Name:
+  = @workout.name
+%p
+  %b State:
+  = @workout.state
+%p
+  %b Exercises:
+  = render partial: 'shared/table', locals: { data: workout_exercises_table_data(@workout) }
+%p
+  %b Trainees:
+  = @workout.trainees.map(&:full_name).join(', ')

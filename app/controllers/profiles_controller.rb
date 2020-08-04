@@ -5,8 +5,11 @@ class ProfilesController < AuthorizedController
   end
 
   def update
-    current_user.update(user_params)
-    render :edit
+    if current_user.update(user_params)
+      redirect_to edit_profile_path, flash: { notice: 'Profile updated successfully.' }
+    else
+      render :edit
+    end
   end
 
   private

@@ -1,0 +1,17 @@
+.content.col{class: col_classes}
+  - if user_signed_in?
+    .float-right
+      = "Logged in as #{current_user.full_name.presence || current_user.email}"
+      %br/
+      .float-right= link_to 'Log out', destroy_user_session_path, method: :delete
+
+  - if title.present?
+    - if devise_controller?
+      %h1.pb-5= link_to 'Gym Test Project', root_path
+      %h2.pb-3= title
+    - else
+      %h1.pb-5= title
+
+  = render partial: 'shared/flash_messages'
+
+  = yield

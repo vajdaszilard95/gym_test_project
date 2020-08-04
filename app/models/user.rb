@@ -16,4 +16,5 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+  alias_method :to_s, :full_name
 end

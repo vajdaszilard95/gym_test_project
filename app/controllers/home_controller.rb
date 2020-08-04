@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   before_action :redirect_if_authorized!
 
+  def index
+    @title = 'Gym Test Project'
+  end
+
   private
 
   def redirect_if_authorized!

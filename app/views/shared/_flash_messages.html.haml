@@ -1,2 +1,3 @@
-%p.notice= notice
-%p.alert= alert
+- { info: notice, danger: alert }.each do |k, v|
+  - if v
+    %p{class: "alert alert-#{k}"}= v

@@ -1,10 +1,14 @@
-%table
+%table.table.table-light.table-striped
   %thead
     %tr
       - data[:columns].each do |column|
         %th= column
   %tbody
-    - data[:rows].each do |row|
+    - if data[:rows].present?
+      - data[:rows].each do |row|
+        %tr
+          - row.each do |value|
+            %td= value
+    - else
       %tr
-        - row.each do |value|
-          %td= value
+        %td{colspan: data[:columns].size} No data available

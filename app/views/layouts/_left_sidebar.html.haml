@@ -1,0 +1,6 @@
+- if user_signed_in?
+  .sidebar.col-sm-4.col-md-3{class: col_classes}
+    %ul
+      - menu_items.each do |menu_item|
+        - @title ||= menu_item[:label] if menu_item[:active]
+        %li{class: "#{'active' if menu_item[:active]}"}= link_to menu_item[:label], menu_item[:path]

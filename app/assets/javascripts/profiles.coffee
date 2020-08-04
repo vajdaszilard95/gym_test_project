@@ -1,5 +1,5 @@
 $(document).ready ->
-  $('select#expertise_area').change (event) ->
+  $('select#trainee_expertise_area').change (event) ->
     options = (grouped_trainers[event.target.value] || []).map (trainer) ->
       $('<option value="' + trainer.id + '">' + trainer.first_name + ' ' + trainer.last_name + '</option>')
     options.unshift($('<option value=""></option>'))

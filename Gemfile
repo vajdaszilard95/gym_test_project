@@ -37,6 +37,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5.0'
 
+gem 'simple_form'
+
 gem 'haml-rails', '~> 2.0'
 
 gem 'devise'

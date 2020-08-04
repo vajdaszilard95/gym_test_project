@@ -1,6 +1,4 @@
-%h1 Workouts
-
 - if can?(:create, Workout)
-  = link_to 'New Workout', new_workout_path
+  = link_to 'New Workout', new_workout_path, class: 'btn btn-primary mb-3'
 
 = render partial: 'shared/table', locals: { data: workouts_table_data(@workouts, current_user) }

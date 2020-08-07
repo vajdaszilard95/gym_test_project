@@ -1,12 +1,14 @@
 %p
   %b Name:
   = @workout.name
-%p
-  %b State:
-  = @workout.state
+- if current_user.is_a?(Trainer)
+  %p
+    %b State:
+    = @workout.state
 %p
   %b Exercises:
   = render partial: 'shared/table', locals: { data: workout_exercises_table_data(@workout) }
-%p
-  %b Trainees:
-  = @workout.trainees.map(&:full_name).join(', ')
+- if current_user.is_a?(Trainer)
+  %p
+    %b Trainees:
+    = @workout.trainees.map(&:full_name).join(', ')

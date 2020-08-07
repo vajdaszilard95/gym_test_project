@@ -5,8 +5,10 @@
         - @title ||= if menu_item[:active]
           - if action_name.in?(['new', 'create'])
             - "New #{menu_item[:label].singularize}"
-          - if action_name.in?(['edit', 'update'])
+          - elsif action_name.in?(['edit', 'update'])
             - "Edit #{menu_item[:label].singularize}"
+          - elsif action_name.in?(['show'])
+            - "#{menu_item[:label].singularize}"
           - else
             - menu_item[:label]
         %li{class: "#{'active' if menu_item[:active]}"}= link_to menu_item[:label], menu_item[:path]

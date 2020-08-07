@@ -12,7 +12,7 @@ class Ability
       can :read, :all
 
       cannot :manage, Workout
-      can :read, Workout, creator_id: user.trainer_id if user.trainer_id.present?
+      can :read, Workout, trainees: { id: user.id }, creator_id: user.trainer_id, state: 'published'
     end
   end
 end

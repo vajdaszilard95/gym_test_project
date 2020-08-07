@@ -25,7 +25,7 @@ module ApplicationHelper
       label: 'Workouts',
       path: workouts_path,
       active: controller_name == 'workouts'
-    } if can?(:read, Workout)
+    } if can?(:index, Workout)
     result
   end
 

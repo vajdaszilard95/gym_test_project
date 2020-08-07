@@ -6,4 +6,13 @@ Rails.application.routes.draw do
 
   resources :workouts
   resource :profile, only: [:edit, :update]
+
+  mount SwaggerUiEngine::Engine, at: '/api-docs'
+
+  namespace :api do
+    namespace :v1 do
+      post 'users/sign_in'
+      resources :workouts, only: [:index, :create, :update, :destroy]
+    end
+  end
 end

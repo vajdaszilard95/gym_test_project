@@ -42,8 +42,12 @@ gem 'simple_form'
 gem 'haml-rails', '~> 2.0'
 
 gem 'devise'
+gem 'simple_token_authentication', '~> 1.0'
 
 gem 'cancancan'
+
+gem 'swagger-docs'
+gem 'swagger_ui_engine'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

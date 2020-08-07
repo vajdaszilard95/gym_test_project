@@ -2,7 +2,6 @@ class WorkoutsController < AuthorizedController
   load_and_authorize_resource
 
   def index
-    @workouts = current_user.visible_workouts
     @workouts = @workouts.includes(:trainees) if Workout::PERMITTED_COLUMNS[current_user.type].include?('trainees')
   end
 
@@ -31,6 +30,7 @@ class WorkoutsController < AuthorizedController
   private
 
   def workout_params
-    params.require(:workout).permit(:name, :state, exercise_ids: [], trainee_ids: []).merge(creator: current_user)
+    creator = current_user if current_user.is_a?(Trainer)
+    params.require(:workout).permit(:name, :state, exercise_ids: [], trainee_ids: []).merge(creator: creator)
   end
 end

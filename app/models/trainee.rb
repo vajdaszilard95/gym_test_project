@@ -4,8 +4,8 @@ class Trainee < User
 
   validates :expertise_area, :trainer_id, presence: true, if: :persisted?
 
-  def visible_workouts
-    workouts.where(state: 'published', creator_id: trainer_id)
+  def api_attributes
+    attributes.slice('id', 'email', 'first_name', 'last_name')
   end
 
   def expertise_area

@@ -19,6 +19,6 @@ class ProfilesController < AuthorizedController
   end
 
   def load_trainers
-    @grouped_trainers = Trainer.select([:id, :first_name, :last_name, :expertise_area]).group_by(&:expertise_area)
+    @grouped_trainers = Trainer.by_expertise_area
   end
 end

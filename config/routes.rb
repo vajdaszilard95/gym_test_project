@@ -18,6 +18,11 @@ Rails.application.routes.draw do
           post :assign_workouts
         end
       end
+      resources :trainers, only: [:index] do
+        collection do
+          post :choose
+        end
+      end
     end
   end
 end

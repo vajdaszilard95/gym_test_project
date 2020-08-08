@@ -4,10 +4,6 @@ class Trainee < User
 
   validates :expertise_area, :trainer_id, presence: true, if: :persisted?
 
-  def api_attributes
-    attributes.slice('id', 'email', 'first_name', 'last_name')
-  end
-
   def expertise_area
     trainer&.expertise_area
   end

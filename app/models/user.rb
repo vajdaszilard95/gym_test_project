@@ -15,6 +15,10 @@ class User < ApplicationRecord
     self.type ||= 'Trainee'
   end
 
+  def api_attributes
+    attributes.slice('id', 'email', 'first_name', 'last_name')
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

@@ -23,6 +23,7 @@ Things you may want to cover:
 `rake data_generator:generate_performances`
 
 * How to run the test suite
+`rspec`
 
 * Services (job queues, cache servers, search engines, etc.)
 

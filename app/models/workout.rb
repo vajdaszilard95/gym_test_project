@@ -2,6 +2,7 @@ class Workout < ApplicationRecord
   has_and_belongs_to_many :exercises
   belongs_to :creator, class_name: 'Trainer'
   has_and_belongs_to_many :trainees, join_table: 'workouts_trainees'
+  has_many :performances, dependent: :destroy
 
   validates :name, :state, :exercises, presence: true
   validates_inclusion_of :state, in: WORKOUT_STATES, if: :state?

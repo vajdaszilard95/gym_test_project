@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'users/sign_in'
       resources :workouts, only: [:index, :create, :update, :destroy]
+      resources :performances, only: [:index]
       resources :trainees, only: [:index] do
         member do
           post :assign_workouts

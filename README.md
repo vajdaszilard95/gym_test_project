@@ -6,14 +6,21 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+2.5.0
 
 * System dependencies
 
 * Configuration
 
 * Database creation
+`rake db:create`
 
 * Database initialization
+`rake db:migrate db:seed`
+
+* Useful tasks
+`rake swagger:docs`
+`rake data_generator:generate_performances`
 
 * How to run the test suite
 

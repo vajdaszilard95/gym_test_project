@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_07_215630) do
+ActiveRecord::Schema.define(version: 2020_08_08_201815) do
 
   create_table "exercises", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 2020_08_07_215630) do
     t.bigint "exercise_id", null: false
     t.index ["exercise_id"], name: "index_exercises_workouts_on_exercise_id"
     t.index ["workout_id"], name: "index_exercises_workouts_on_workout_id"
+  end
+
+  create_table "performances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "trainee_id"
+    t.integer "workout_id"
+    t.text "results"
+    t.timestamp "performed_at"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

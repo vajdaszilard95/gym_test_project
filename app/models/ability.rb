@@ -6,12 +6,16 @@ class Ability
     when 'Trainer'
       can :manage, :all
 
-      cannot :manage, Workout
+      cannot :manage, [Workout, Trainee]
+
       can :manage, Workout, creator_id: user.id
+
+      can [:read, :assign_workouts], Trainee, trainer_id: user.id
     when 'Trainee'
       can :read, :all
 
-      cannot :manage, Workout
+      cannot :manage, [Workout, Trainee]
+
       can :read, Workout, trainees: { id: user.id }, creator_id: user.trainer_id, state: 'published'
     end
   end

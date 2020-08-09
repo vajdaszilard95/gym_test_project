@@ -30,3 +30,12 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## DEMO
+[Gym Test App](https://gym-test-project.herokuapp.com/)
+[API docs](https://gym-test-project.herokuapp.com/api-docs)
+
+#### Test Users:
+test_trainee_1@gym.test
+yoga_trainer_1@gym.test
+(password: 123456)

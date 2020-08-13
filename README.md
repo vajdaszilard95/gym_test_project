@@ -29,7 +29,8 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+## DB SCHEMA
+[DB schema](https://dbdiagram.io/d/5f35a059e1246d54aa2d45c8)
 
 ## DEMO
 [Gym Test App](https://gym-test-project.herokuapp.com/)
